@@ -11,7 +11,7 @@ This API throw to Amazon Product Advertising API search keywords and SearchIndex
 
 ## Notes
 
-1. This API use 'aws_signed_request.php' <http://www.ulrichmierendorff.com/software/aws_hmac_signer.html>, set the same folder.
+1. This API use '[aws_signed_request.php](http://www.ulrichmierendorff.com/software/aws_hmac_signer.html)', set the same folder.
 1. Create temp folder, give write attribute, and write to 'call_picture_from_amazon__config.php'.
 1. Get these keys or tag from amazon, and write to 'call_picture_from_amazon__config.php'.
 	1. AssociateTag
@@ -26,14 +26,13 @@ Or <http://kuze.tsukaeru.jp/tools/iphone/anichecker/>
 
 ## Usage
 
-(get)
+### (get)
 
 'Keyword' keyword.
 
 'SearchIndex' category[ex All(Default), Books, Default].
 
-
-(return)
+### (return)
 
 'Items' item(s).
 
