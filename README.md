@@ -2,6 +2,7 @@
 ====
 
 Get image URL etc by json from Amazon Product Advertising API.
+
 I used in [anichecker](http://kuze.tsukaeru.jp/tools/anichecker/ "anichecker").
 
 ## Description
@@ -20,6 +21,7 @@ This API throw to Amazon Product Advertising API search keywords and SearchIndex
 ## Demo
 
 Use call_picture_from_amazon.html.
+
 Or <http://kuze.tsukaeru.jp/tools/iphone/anichecker/>
 
 ## Usage
@@ -27,11 +29,13 @@ Or <http://kuze.tsukaeru.jp/tools/iphone/anichecker/>
 (get)
 
 'Keyword' keyword.
+
 'SearchIndex' category[ex All(Default), Books, Default].
 
 (return)
 
 'Items' item(s).
+
 'Items.Item[num]' item (By  Amazon Product Advertising API).
 
 ## LICENCE
