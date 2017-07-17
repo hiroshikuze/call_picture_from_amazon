@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>call_picture_from_amazon</title>
+<script>
+$(function(){
+	searchWord = function(){
+		var searchKeyword = encodeURI($(this).val());
+		
+		if(searchKeyword.length === 0) return;
+		$.getJSON("http://kuze.tsukaeru.jp/tools/iphone/anichecker/test/php2/call_picture_from_amazon.php?Keyword=" + searchKeyword + "&SearchIndex=All").then(
+			function(json) {
+				if(json.Items.Item === undefined || json.Items.Item.length === undefined) {
+					setItem("noimage.png", "nodata");
+				} else {
+					if(json.Items.Item[0].LargeImage !== undefined) {
+						setItem(json.Items.Item[0].LargeImage.URL, json.Items.Item[0].ItemAttributes.Title);
+					} else {
+						setItem("noimage.png", json.Items.Item[0].ItemAttributes.Title);
+					}
+				}
+			}
+		);
+	}
+	
+	$("#search").on("input", searchWord);
+});
+
+/**
+ * Set an image and title.
+ *
+ * @import image's url
+ * @import image's title
+ */
+function setItem(url, title) {
+	$("img#title").attr("src", url);
+	$("span#title").text(title);
+}
+</script>
+</head>
+<body>
+
+	<p>Keyword: <input type="text" id="search"></p>
+	<img src="noimage.png" id="title" /><br />
+	<p>Title: <span id="title">nodata</span></p>
+	
+</body>
+</html>
