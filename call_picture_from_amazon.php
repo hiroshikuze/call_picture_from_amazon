@@ -13,12 +13,12 @@
 include('aws_signed_request.php');
 include('call_picture_from_amazon__config.php');
 
+deleteOldFiles(TEMP_FOLDER);
+
 if(! isset($_GET["Keyword"])) exit;
 
 $keyword = htmlspecialchars($_GET["Keyword"], ENT_QUOTES, "UTF-8");
 $keyword_hash_xml_file = TEMP_FOLDER.md5($keyword).".xml";
-
-deleteOldFiles();
 
 if(! file_exists($keyword_hash_xml_file)
   || filemtime($keyword_hash_xml_file)+24*60*60 < time()
@@ -41,10 +41,10 @@ function deleteOldFiles()
 	  || (file_exists(TEMP_FOLDER . TEMP_FILE) &&  time() < filemtime(TEMP_FOLDER . TEMP_FILE)+24*60*60)) return;
 	
 	$handle = opendir(TEMP_FOLDER);
-	while(($file = readdir(TEMP_FOLDER)) !== false) {
+	while(($file = readdir($handle)) !== false) {
 		$dir_file = TEMP_FOLDER . $file;
 		if(filetype($dir_file) !== "file") continue;
-		if(filemtime($dir_file)+24*60*60 < time()) continue;
+		if(time() < filemtime($dir_file)+24*60*60) continue;
 		if(pathinfo($dir_file, PATHINFO_EXTENSION) !== "xml") continue;
 		unlink($dir_file);
 	}
