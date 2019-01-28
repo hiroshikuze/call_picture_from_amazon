@@ -3,7 +3,7 @@
 
 Get image URL etc by json from Amazon Product Advertising API.
 
-I used in [anichecker](http://kuze.tsukaeru.jp/tools/anichecker/ "anichecker").
+I used in [anichecker](http://kuje.kousakusyo.info/tools/anichecker/ "anichecker").
 
 ## Description
 
@@ -22,7 +22,7 @@ This API throw to Amazon Product Advertising API search keywords and SearchIndex
 
 Use call_picture_from_amazon.html.
 
-Or <http://kuze.tsukaeru.jp/tools/iphone/anichecker/>
+Or <http://kuje.kousakusyo.info/tools/iphone/anichecker/>
 
 ## Usage
 
