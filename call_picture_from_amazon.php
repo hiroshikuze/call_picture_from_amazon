@@ -2,7 +2,7 @@
 
 /*
  * call_picture_from_amazon
- * Copyright (c) 2017 Hiroshi Kuze.
+ * Copyright (c) Hiroshi Kuze.
  */
 /*
  * Parameters($_GET):
@@ -40,13 +40,14 @@ function deleteOldFiles()
 	if(! is_dir(TEMP_FOLDER)
 	  || (file_exists(TEMP_FOLDER . TEMP_FILE) &&  time() < filemtime(TEMP_FOLDER . TEMP_FILE)+24*60*60)) return;
 	
-	$handle = opendir(TEMP_FOLDER);
-	while(($file = readdir($handle)) !== false) {
-		$dir_file = TEMP_FOLDER . $file;
-		if(filetype($dir_file) !== "file") continue;
-		if(time() < filemtime($dir_file)+24*60*60) continue;
-		if(pathinfo($dir_file, PATHINFO_EXTENSION) !== "xml") continue;
-		unlink($dir_file);
+	if($handle = opendir(TEMP_FOLDER)) {
+		while(($file = readdir($handle)) !== false) {
+			$dir_file = TEMP_FOLDER . $file;
+			if(filetype($dir_file) !== "file") continue;
+			if(filemtime($dir_file)+24*60*60 < time()) continue;
+			if(pathinfo($dir_file, PATHINFO_EXTENSION) !== "xml") continue;
+			unlink($dir_file);
+		}
 	}
 	touch(TEMP_FOLDER . TEMP_FILE);
 }
