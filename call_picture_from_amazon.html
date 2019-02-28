@@ -9,7 +9,7 @@ $(function(){
 		var searchKeyword = encodeURI($(this).val());
 		
 		if(searchKeyword.length === 0) return;
-		$.getJSON("http://kuze.tsukaeru.jp/tools/iphone/anichecker/test/php2/call_picture_from_amazon.php?Keyword=" + searchKeyword + "&SearchIndex=All").then(
+		$.getJSON("http://kuje.kousakusyo.info/tools/iphone/anichecker/test/php2/call_picture_from_amazon.php?SearchIndex=All&Keyword=" + searchKeyword + "&SearchIndex=All").then(
 			function(json) {
 				if(json.Items.Item === undefined || json.Items.Item.length === undefined) {
 					setItem("noimage.png", "nodata");
