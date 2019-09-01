@@ -37,10 +37,17 @@ Or <http://kuje.kousakusyo.info/tools/iphone/anichecker/>
 
 'Items.Item[num]' item (By  Amazon Product Advertising API).
 
+## Contribution
+
+1. Fork it ( http://github.com/hiroshikuze/call_picture_from_amazon/fork )
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
 ## LICENCE
 
 MIT License.
-
 
 ## Author
 
